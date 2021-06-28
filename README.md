@@ -3,10 +3,10 @@
 ## 概要
 Pusherサービスと Laravel Echo を使用した簡易的なリアルタイムチャット。フロント部分はReact。サーバーサイドは Laravel を使用。
 
-![demo](/app/doc/demo.png)
+![demo](/doc/demo.png)
 
 ↓デモ動画（別々のブラウザを起動して動作確認しています。左側はChrome、右側はFirefox）  
-![sample](/app/doc/demo2.gif)
+![sample](/doc/demo2.gif)
 
 ## 開発環境
 - Laravel 8.4
@@ -29,7 +29,7 @@ Pusherサービスと Laravel Echo を使用した簡易的なリアルタイム
 ## Pusher について
 Pusher とは WebSocket を使って両方向のインターネットやデバイスの送受信をリアルタイムで通信することができるサービスです。利用するにはアカウント登録が必要です。登録が完了したら、アプリ情報を利用するのでメモをしておいてください。
 
-![Pusher1](/app/doc/pusher1.jpg)
+![Pusher1](/doc/pusher1.jpg)
 
 ## 実行方法
 
