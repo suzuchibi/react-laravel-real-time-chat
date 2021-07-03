@@ -2,7 +2,7 @@
 
 ## 概要
 Pusherサービスと Laravel Echo を使用した簡易的なリアルタイムチャット。フロント部分はReact。サーバーサイドは Laravel を使用。  
-**（注 API認証は今回は割愛。）**
+**（＊注 API認証は今回は割愛。）**
 
 ![demo](/doc/demo.png)
 
