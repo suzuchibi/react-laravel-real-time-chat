@@ -11,7 +11,7 @@ Pusherサービスと Laravel Echo を使用した簡易的なリアルタイム
 
 ## 開発環境
 - Laravel 8.4
-- node.js 14.2+
+- node.js 14.17.4 (安定板)
 - yarn 1.22+
 - react 17.0.2
 - laravel-echo 1.11.0
