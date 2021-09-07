@@ -3,12 +3,12 @@ volumes:
   chat-db-store:
 
 services:
-  chat_workspace:
+  workspace:
     build: ./php
     volumes:
       - ../src:/work
 
-  chat_nginx:
+  nginx:
     image: nginx:1.20-alpine
     ports:
       # - 10080:80
@@ -18,7 +18,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     working_dir: /work
 
-  chat_mysql:
+  mysql:
     build: ./mysql
     volumes:
       - chat-db-store:/var/lib/mysql
