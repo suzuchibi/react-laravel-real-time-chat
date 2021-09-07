@@ -90,14 +90,14 @@ PUSHER_APP_CLUSTER=******  <- メモした APP_CLUSTER を入力
 ```
 # php artisan migrate
 ```
+9 コンテナからログアウト
+```
+ctr + p -> q もしくは # exit
+```
 http://localhost ブラウザで確認可能です。  
 初回はユーザー登録がされていないので、「register」からユーザー登録を行なってログインしてください。
 
 ### 終了方法
-コンテナからログアウト
-```
-ctr + p -> q もしくは # exit
-```
 docker終了（Dockerファイル全てを削除します。）
 ```
 $ docker-compose down --rmi all --volumes --remove-orphans
