@@ -41,20 +41,35 @@ Docker でLEMP環境を構築しているので、事前に Docker をインス�
 ```
 $ cd docker
 ```
-2 dockerディレクトリの env_example から[ .env ] ファイルを作成  
-COMPOSE_PROJECT_NAMEの値は自由に設定しても大丈夫です。
+2 dockerディレクトリの env_example から[ .env ] ファイルを作成
 ```
 $ cp env_example .env
 ```
+COMPOSE_PROJECT_NAMEの値は自由に設定しても大丈夫です。
 ```
 [.env]
 COMPOSE_PROJECT_NAME=react_laravel_chat
 ```
-3 Docker起動（サーバーを起動させます。初回は時間かかります。）
+3 mysqlの設定を確認。  
+[ docker / mysql / Dockerfile ]  
+mysqlの設定を確認しておいてください。お好きなように変更可能です。
+```
+FROM mysql/mysql-server:8.0
+
+ENV MYSQL_DATABASE=test \     <- デフォルトは test 自由に変更可。
+  MYSQL_USER=test \  　　　　　　　　　　　　　　　　　　<- デフォルトは test 自由に変更可。
+  MYSQL_PASSWORD=test \  　　　　　　　　　<- デフォルトは test 自由に変更可。
+  MYSQL_ROOT_PASSWORD=test \  <- デフォルトは test 自由に変更可。
+  TZ=Asia/Tokyo
+
+COPY ./my.cnf /etc/my.cnf
+RUN chmod 644 /etc/my.cnf
+```
+4 Docker起動（サーバーを起動させます。初回は時間かかります。）
 ```
 $ docker-compose up -d
 ```
-4 起動したらコンテナ内（workspace）にログイン
+5 起動したらコンテナ内（workspace）にログイン
 ```
 $ docker-compose exec workspace bash
 
@@ -62,35 +77,35 @@ $ docker-compose exec workspace bash
 
 $ docker-compose exec workspace sh
 ```
-5 workspace内に[ .env ] ファイルを作成
+6 workspace内に[ .env ] ファイルを作成
 ```
 # cp .env.example .env
 ```
-6 作成した[ .env ]を編集  
-DB と Pusher を設定（DBのデータベース名、ユーザーネーム、パスワードはお好きなように(^^)）
+7 作成した[ .env ]を編集  
+DB と Pusher を設定（DBのデータベース名、ユーザーネーム、パスワードは [3] で設定した内容です(^^)）
 ```
 DB_CONNECTION=mysql
 DB_HOST=chat_mysql
 DB_PORT=3306
-DB_DATABASE=test  <- 自由
-DB_USERNAME=test  <- 自由
-DB_PASSWORD=test  <- 自由
+DB_DATABASE=test  <- [3] で設定した内容
+DB_USERNAME=test  <- [3] で設定した内容
+DB_PASSWORD=test  <- [3] で設定した内容
 
 PUSHER_APP_ID=******  <- メモした APP_ID を入力
 PUSHER_APP_KEY=******  <- メモした APP_KEY を入力
 PUSHER_APP_SECRET=******  <- メモした APP_SECRET を入力
 PUSHER_APP_CLUSTER=******  <- メモした APP_CLUSTER を入力
 ```
-7 Laravelプロジェクトのキーを設定
+8 Laravelプロジェクトのキーを設定
 ```
 # php artisan key:generate
 ```
-8 マイグレーション実行（テーブル作成）  
+9 マイグレーション実行（テーブル作成）  
 ※シーダー作成していますが、実行しなくても大丈夫です。
 ```
 # php artisan migrate
 ```
-9 コンテナからログアウト
+10 コンテナからログアウト
 ```
 ctr + p -> q もしくは # exit
 ```
