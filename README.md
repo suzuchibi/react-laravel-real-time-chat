@@ -46,6 +46,10 @@ COMPOSE_PROJECT_NAMEの値は自由に設定しても大丈夫です。
 ```
 $ cp env_example .env
 ```
+```
+[.env]
+COMPOSE_PROJECT_NAME=react_laravel_chat
+```
 3 Docker起動（サーバーを起動させます。初回は時間かかります。）
 ```
 $ docker-compose up -d
@@ -53,7 +57,9 @@ $ docker-compose up -d
 4 起動したらコンテナ内（workspace）にログイン
 ```
 $ docker-compose exec workspace bash
+
 あるいは
+
 $ docker-compose exec workspace sh
 ```
 5 workspace内に[ .env ] ファイルを作成
