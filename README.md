@@ -48,12 +48,15 @@ $ cp env_example .env
 COMPOSE_PROJECT_NAMEの値は自由に設定しても大丈夫です。
 ```
 [.env]
+
 COMPOSE_PROJECT_NAME=react_laravel_chat
 ```
 3 mysqlの設定を確認。  
 [ docker / mysql / Dockerfile ]  
 mysqlの設定を確認しておいてください。お好きなように変更可能です。
 ```
+[docker/mysql/Dockerfile]
+
 FROM mysql/mysql-server:8.0
 
 ENV MYSQL_DATABASE=test \     <- デフォルトは test 自由に変更可。
