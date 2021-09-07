@@ -41,19 +41,26 @@ Docker でLEMP環境を構築しているので、事前に Docker をインス�
 ```
 $ cd docker
 ```
-2 Docker起動（サーバーを起動させます。初回は時間かかります。）
+2 env_example から[ .env ] ファイルを作成  
+COMPOSE_PROJECT_NAMEの値は自由に設定しても大丈夫です。
+```
+$ cp env_example .env
+```
+3 Docker起動（サーバーを起動させます。初回は時間かかります。）
 ```
 $ docker-compose up -d
 ```
-3 起動したらコンテナ内にログイン
+4 起動したらコンテナ内（workspace）にログイン
 ```
-$ docker-compose exec chat_workspace bash
+$ docker-compose exec workspace bash
+あるいは
+$ docker-compose exec workspace sh
 ```
-4 [ .env ] ファイルを作成
+5 workspace内に[ .env ] ファイルを作成
 ```
 # cp .env.example .env
 ```
-5 .env を編集  
+6 .env を編集  
 DB と Pusher を設定（DBのデータベース名、ユーザーネーム、パスワードはお好きなように(^^)）
 ```
 DB_CONNECTION=mysql
@@ -68,11 +75,11 @@ PUSHER_APP_KEY=******  <- メモした APP_KEY を入力
 PUSHER_APP_SECRET=******  <- メモした APP_SECRET を入力
 PUSHER_APP_CLUSTER=******  <- メモした APP_CLUSTER を入力
 ```
-6 Laravelプロジェクトのキーを設定
+7 Laravelプロジェクトのキーを設定
 ```
 # php artisan key:generate
 ```
-7 マイグレーション実行（テーブル作成）  
+8 マイグレーション実行（テーブル作成）  
 ※シーダー作成していますが、実行しなくても大丈夫です。
 ```
 # php artisan migrate
@@ -85,7 +92,7 @@ http://localhost ブラウザで確認可能です。
 ```
 ctr + p -> q もしくは # exit
 ```
-docker終了
+docker終了（Dockerファイル全てを削除します。）
 ```
 $ docker-compose down --rmi all --volumes --remove-orphans
 ```
