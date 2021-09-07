@@ -41,7 +41,7 @@ Docker でLEMP環境を構築しているので、事前に Docker をインス�
 ```
 $ cd docker
 ```
-2 env_example から[ .env ] ファイルを作成  
+2 dockerディレクトリの env_example から[ .env ] ファイルを作成  
 COMPOSE_PROJECT_NAMEの値は自由に設定しても大丈夫です。
 ```
 $ cp env_example .env
@@ -66,7 +66,7 @@ $ docker-compose exec workspace sh
 ```
 # cp .env.example .env
 ```
-6 .env を編集  
+6 作成した[ .env ]を編集  
 DB と Pusher を設定（DBのデータベース名、ユーザーネーム、パスワードはお好きなように(^^)）
 ```
 DB_CONNECTION=mysql
