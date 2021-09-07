@@ -53,7 +53,7 @@ COMPOSE_PROJECT_NAME=react_laravel_chat
 ```
 3 mysqlの設定を確認。  
 [ docker / mysql / Dockerfile ]  
-mysqlの設定を確認しておいてください。お好きなように変更可能です。
+mysqlの設定を確認しておいてください。お好きなように変更可能です(^^)
 ```
 [docker/mysql/Dockerfile]
 
@@ -94,9 +94,9 @@ DB_DATABASE=test  <- [3] で設定した内容
 DB_USERNAME=test  <- [3] で設定した内容
 DB_PASSWORD=test  <- [3] で設定した内容
 
-PUSHER_APP_ID=******  <- メモした APP_ID を入力
-PUSHER_APP_KEY=******  <- メモした APP_KEY を入力
-PUSHER_APP_SECRET=******  <- メモした APP_SECRET を入力
+PUSHER_APP_ID=***********  <- メモした APP_ID を入力
+PUSHER_APP_KEY=**********  <- メモした APP_KEY を入力
+PUSHER_APP_SECRET=*******  <- メモした APP_SECRET を入力
 PUSHER_APP_CLUSTER=******  <- メモした APP_CLUSTER を入力
 ```
 8 Laravelプロジェクトのキーを設定
